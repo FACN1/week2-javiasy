@@ -12,7 +12,7 @@ QUnit.test("deleteTodo function", function(assert) {
         { id: -3, description: 'first todo'},
         { id: -2, description: 'second todo'},
     ];
-    assert.equal(todo.todoFunctions.deleteTodo(input, -1), output, "Removed the third todo (id: -1) from todoList" );
+    assert.deepEqual(todo.todoFunctions.deleteTodo(input, -1), output, "Removed the third todo (id: -1) from todoList" );
 
 
     /*
