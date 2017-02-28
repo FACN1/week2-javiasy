@@ -44,9 +44,9 @@ QUnit.test("deleteTodo function", function(assert) {
 
 QUnit.test("markTodo function", function(assert) {
     var input1 = [
-        { id: -3, description: 'first todo'},
-        { id: -2, description: 'second todo'},
-        { id: -1, description: 'third todo'}
+        { id: -3, description: 'first todo', done: false},
+        { id: -2, description: 'second todo', done: false},
+        { id: -1, description: 'third todo', done: false}
     ];
     var output1 = [
         { id: -3, description: 'first todo', done: false},
