@@ -99,8 +99,7 @@ var controller = {
         var markButtonNode = document.createElement('button')
         if (todoData.done){
           markButtonNode.innerHTML = '&#10004';
-        }
-        else {
+        } else {
           markButtonNode.innerHTML = '&#10008';
         }
         markButtonNode.addEventListener('click', function(event) {
@@ -136,7 +135,7 @@ addTodoForm.addEventListener('submit', function(event) {
     var newTodo = { // Create a new todo item object
         description: description
     };
-
+    event.target.description.value = '';
 
     state = todoFunctions.addTodo(state, newTodo);  // addTodo pure function doesn't mutate the state array, but this does change it.
 
