@@ -9,14 +9,8 @@ QUnit.test( "addTodo function", function( assert ) {
         { id: -3, description: 'first todo'},
         { id: -2, description: 'second todo'},
         { id: -1, description: 'third todo'},
-        { id: 0, description: 'fourth todo'}];
-
-
-    // ([
-    //     {id: 1,description: 'first'},
-    //     {id: 2,description: 'second'},
-    //     {id: 3,description: 'third'}
-    // ])
+        { id: 0, description: 'fourth todo'}
+    ];
 
     assert.deepEqual(result, expected, "addTodo passed!" );
 });

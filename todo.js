@@ -31,7 +31,6 @@ var todoFunctions = {
         // should leave the input argument todos unchanged
         // return a new array, this should not contain any todo with an id of idToDelete
         // hint: array.filter
-
         return todos.filter(function(todo) {
             return (todo.id === idToDelete) ? false : true;
         });
@@ -107,6 +106,6 @@ addTodoForm.addEventListener('submit', function(event) {
 controller.render(state);
 
 
-return { todoFunctions: todoFunctions };
+return { todoFunctions: todoFunctions, state: state };
 
 })();
