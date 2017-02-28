@@ -13,6 +13,18 @@ var todo = (function() {
     // }
 
 
+// var utilities = { REMOVE THIS
+//     clone: function(obj) {
+//         if (null == obj || "object" != typeof obj) return obj;
+//         var copy = obj.constructor();
+//         for (var attr in obj) {
+//             if (obj.hasOwnProperty(attr)) copy[attr] = obj[attr];
+//         }
+//         return copy;
+//     }
+// }
+
+
 var todoFunctions = {
     generateId: (function() {
         var idCounter = 0;
@@ -37,10 +49,27 @@ var todoFunctions = {
         });
     },
     markTodo: function (todos, idToMark) {
+
+
         // should leave the input argument todos unchanged
         // in the new todo list, all elements will remain unchanged except the on with id: idToMark
         // this element will have its id toggled
         // hint: array.map
+
+        return todos.map(function(todo){
+            var todoCopy = {};  // Create new object
+
+            Object.keys(todo).forEach(function(k) {
+                todoCopy[k] = todo[k]
+            }); // Loop through keys of todo object, and assign k/v pairs to todoCopy
+
+
+          if (todoCopy.id === idToMark) {
+              todoCopy.done = (todoCopy.done) ? false : true;
+              // if todoCopy is true, change to false (toggle)
+          }
+          return todoCopy;
+        });
     },
     sortTodos: function(todos, sortFunction) {
         // stretch goal! Do this last
