@@ -1,9 +1,4 @@
 QUnit.test( "addTodo function", function( assert ) {
-    // var result = (1, 1); //no change/coins just an empty array
-    // var expected = [];
-    // assert.deepEqual(result, expected);
-
-
     var result = todo.todoFunctions.addTodo(todo.state,{id: 0,description: 'fourth todo'});
     var expected =[
         { id: -3, description: 'first todo'},
@@ -12,7 +7,17 @@ QUnit.test( "addTodo function", function( assert ) {
         { id: 0, description: 'fourth todo'}
     ];
 
+    var result2 = todo.todoFunctions.addTodo(todo.state,{id: null, description: "fourth todo"})
+    var expected2 =[
+        { id: -3, description: 'first todo'},
+        { id: -2, description: 'second todo'},
+        { id: -1, description: 'third todo'},
+        { id: 1, description: 'fourth todo'}
+    ];
+
     assert.deepEqual(result, expected, "addTodo passed!" );
+    assert.deepEqual(result2,expected2, "adds correct id");
+
 });
 
 QUnit.test("deleteTodo function", function(assert) {
