@@ -97,7 +97,7 @@ addTodoForm.addEventListener('submit', function(event) {
     var description = "?"; //event.target ....
 
     state = state // change this!! you should use todoFunctions.addTodoForm
-    controller.render();
+    controller.render(state);
 });
 
 controller.render(state);
