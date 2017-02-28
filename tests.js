@@ -14,17 +14,9 @@ QUnit.test( "addTodo function", function( assert ) {
         { id: -1, description: 'third todo'},
         { id: 1, description: 'fourth todo'}
     ];
-    var result3 = todo.todoFunctions.addTodo(todo.state,{description: "fourth todo"})
-    var expected3 =[
-        { id: -3, description: 'first todo'},
-        { id: -2, description: 'second todo'},
-        { id: -1, description: 'third todo'},
-        { id: 2, description: 'fourth todo'}
-    ];
 
     assert.deepEqual(result, expected, "addTodo passed!" );
     assert.deepEqual(result2,expected2, "adds correct id");
-    assert.deepEqual(result3,expected3, "adds correct id when no 'id' key present");
 
 });
 
@@ -120,3 +112,33 @@ QUnit.test("markTodo function", function(assert) {
         [todo0, todo1]
     */
 })
+
+QUnit.test("sortfunction test", function(assert){
+
+    var input1 = [
+        { id: 0, description: 'c', done: false},
+        { id: 1, description: 'b', done: false},
+        { id: 2, description: 'a', done: false}
+    ];
+    var output1 = [
+        { id: 2, description: 'a', done: false},
+        { id: 1, description: 'b', done: false},
+        { id: 0, description: 'c', done: false}
+    ];
+    var input2 = [
+        { id: 0, description: 'first todo', done: false},
+        { id: 1, description: 'second todo', done: false},
+        { id: 2, description: 'third todo', done: false}
+    ];
+    var output2 = [
+        { id: 0, description: 'first todo', done: true},
+        { id: 1, description: 'second todo', done: false},
+        { id: 2, description: 'third todo', done: false}
+    ];
+    result = todo.todoFunctions.sortTodos(input1)
+
+    assert.deepEqual(result,output1,"first sort test");
+
+
+
+});

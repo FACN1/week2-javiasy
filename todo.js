@@ -61,11 +61,18 @@ var todoFunctions = {
           return todoCopy;
         });
     },
-    sortTodos: function(todos, sortFunction) {
+    sortTodos: function(todos, sortFunction=function(a,b){
+        return a.description - b.description;
+    }) {
+        return todos.sort(sortFunction).reverse();
+        console.log(todos[0].description);
+
         // stretch goal! Do this last
         // should leave the input arguement todos unchanged
         // sortFunction will have same signature as the sort function in array.sort
         // hint: array.slice, array.sort
+
+
     }
 }
 
