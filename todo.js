@@ -32,7 +32,7 @@ var todoFunctions = {
         // hint: array.filter
         var out = [
             { id: -3, description: 'first todo'},
-            { id: -2, description: 'second todo'},
+            { id: -2, description: 'second todo'}
         ]; //change me!
         return out;
     },
