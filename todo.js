@@ -92,8 +92,13 @@ var controller = {
         // you will need to use addEventListener
 
         // add span holding description
+        var spanNode = document.createElement('span');
+        spanNode.innerHTML = '<p>' + todoData.description + '</p>';
+        todoNode.appendChild(spanNode);
+
         // this adds the delete button
         var deleteButtonNode = document.createElement('button');
+        deleteButtonNode.innerHTML = 'Delete';
         deleteButtonNode.addEventListener('click', function(event) {
             state = todoFunctions.deleteTodo(state, todoData.id);
             controller.render(state);
@@ -114,7 +119,7 @@ var controller = {
         });
 
         // you may want to add a class for css
-        console.log(todoListWrapper.firstChild);
+        /*console.log(todoListWrapper.firstChild);*/
         todoListWrapper.replaceChild(todoListNode, todoListWrapper.firstChild);
     }
 }
@@ -129,7 +134,7 @@ addTodoForm.addEventListener('submit', function(event) {
 
     var description = "?"; //event.target ....
 
-    state = state // change this!! you should use todoFunctions.addTodoForm
+    state = state // change this!! you should use addTodoForm
     controller.render(state);
 });
 
