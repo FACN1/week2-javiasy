@@ -65,17 +65,22 @@ var todoFunctions = {
         // }))
         return todos.map(function(todo){
             // var newTodo = utilties.clone(todo);
-          if (todo.id === idToMark) {
+            var todoCopy = todo.constructor();
+            for (var attr in todo) {
+                if (todo.hasOwnProperty(attr)) todoCopy[attr] = todo[attr];
+            }
+
+          if (todoCopy.id === idToMark) {
               // if {todo.done === undefined) {}
-              if (todo.done === true) {
-                  todo.done = false;
+              if (todoCopy.done === true) {
+                  todoCopy.done = false;
               }
-              else if (todo.done === false) {
-                  todo.done = true;
+              else if (todoCopy.done === false) {
+                  todoCopy.done = true;
               }
             //   newTodo.done = !newTodo.done;
           }
-          return todo;
+          return todoCopy;
         });
     },
     sortTodos: function(todos, sortFunction) {
