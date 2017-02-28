@@ -25,6 +25,7 @@ var todoFunctions = {
         // return a new array, it should contain todos with the newTodo added to the end.
         // add an id to the newTodo. You can use the generateId function to create an id.
         // hint: array.concat
+        return todos.concat(newTodo);
     },
     deleteTodo: function (todos, idToDelete) {
         // should leave the input argument todos unchanged
