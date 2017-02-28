@@ -21,8 +21,13 @@ Week 2 project for Javiasy - make a to do list
 
 ## DOM Manipulation
 
-### Create Todo Node
+### Function - createTodoNode
 
+*spanNode* : Adds a span holding the description of the todo item, and appends to an li node (the todo Node).
+
+*deleteButtonNode* : Deletes the li node of the todo item with the given ID, using the deleteTodo function.
+
+*markButtonNode*: Adds a button which can be used to toggle between a tick or a cross, using the markTodo function.
 
 ### Add to Todo form
 
@@ -37,10 +42,12 @@ Steps
 
 Todo state structure:
 
-    Todo array (main variable for storing todo items), where todoObject1 is an example object:
+  Todo array (main variable for storing todo items), where todoObject1 is an example object:
+
     [todoObject1, todoObject2, todoObject3]
 
-    Todo object structure:
+  Todo object structure:
+
     todoObject1 = {
         id: num (e.g. 0),
         description: information-about-todo-item (e.g. 'Write an email later today'),
