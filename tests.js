@@ -14,9 +14,17 @@ QUnit.test( "addTodo function", function( assert ) {
         { id: -1, description: 'third todo'},
         { id: 1, description: 'fourth todo'}
     ];
+    var result3 = todo.todoFunctions.addTodo(todo.state,{description: "fourth todo"})
+    var expected3 =[
+        { id: -3, description: 'first todo'},
+        { id: -2, description: 'second todo'},
+        { id: -1, description: 'third todo'},
+        { id: 2, description: 'fourth todo'}
+    ];
 
     assert.deepEqual(result, expected, "addTodo passed!" );
     assert.deepEqual(result2,expected2, "adds correct id");
+    assert.deepEqual(result3,expected3, "adds correct id when no 'id' key present");
 
 });
 
