@@ -103,6 +103,6 @@ addTodoForm.addEventListener('submit', function(event) {
 controller.render(state);
 
 
-
+    return { todoFunctions: todoFunctions };
 
 })();
