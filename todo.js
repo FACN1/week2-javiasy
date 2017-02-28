@@ -54,31 +54,18 @@ var todoFunctions = {
         // in the new todo list, all elements will remain unchanged except the on with id: idToMark
         // this element will have its id toggled
         // hint: array.map
-        // var newTodos = todos.slice();
-        // console.log(newTodos.map(function(todo){
-        //     var newTodo = todo.cloneNode(true);
-        //   if (newTodo.id === idToMark){
-        //     // if {todo.done === undefined) {}
-        //     newTodo.done = !newTodo.done;
-        //   }
-        //   return newTodo;
-        // }))
+
         return todos.map(function(todo){
-            // var newTodo = utilties.clone(todo);
-            var todoCopy = todo.constructor();
-            for (var attr in todo) {
-                if (todo.hasOwnProperty(attr)) todoCopy[attr] = todo[attr];
-            }
+            var todoCopy = {};  // Create new object
+
+            Object.keys(todo).forEach(function(k) {
+                todoCopy[k] = todo[k]
+            }); // Loop through keys of todo object, and assign k/v pairs to todoCopy
+
 
           if (todoCopy.id === idToMark) {
-              // if {todo.done === undefined) {}
-              if (todoCopy.done === true) {
-                  todoCopy.done = false;
-              }
-              else if (todoCopy.done === false) {
-                  todoCopy.done = true;
-              }
-            //   newTodo.done = !newTodo.done;
+              todoCopy.done = (todoCopy.done) ? false : true;
+              // if todoCopy is true, change to false (toggle)
           }
           return todoCopy;
         });
