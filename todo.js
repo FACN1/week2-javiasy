@@ -11,7 +11,7 @@ var todo = (function() {
     //   description: /*the description of the todo item*/,
     //   done: /*true or false, indicates whether the todo is done*/
     // }
-}
+
 
 var todoFunctions = {
     generateId: (function() {
@@ -105,4 +105,4 @@ controller.render(state);
 
 
 
-)();
+})();
