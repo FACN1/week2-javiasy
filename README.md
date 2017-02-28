@@ -25,4 +25,24 @@ Week 2 project for Javiasy - make a to do list
 
 
 ### Add to Todo form
- 
+
+Steps
+1. Use an addEventListener on all submit actions executed by the element '#add-todo'
+- Cancel default submit action (post request/reload page)
+- Pull the input description with event.target.description.value
+- Create new todo item object
+- Update the state array with the addTodo "pure function"
+- Execute the controller.render method
+
+
+Todo state structure:
+
+    Todo array (main variable for storing todo items), where todoObject1 is an example object:
+    [todoObject1, todoObject2, todoObject3]
+
+    Todo object structure:
+    todoObject1 = {
+        id: num (e.g. 0),
+        description: information-about-todo-item (e.g. 'Write an email later today'),
+        done: boolean (e.g. true or false) // this is for keeping track of what todo items have been completed
+    }
