@@ -13,6 +13,18 @@ var todo = (function() {
     // }
 
 
+// var utilities = { REMOVE THIS
+//     clone: function(obj) {
+//         if (null == obj || "object" != typeof obj) return obj;
+//         var copy = obj.constructor();
+//         for (var attr in obj) {
+//             if (obj.hasOwnProperty(attr)) copy[attr] = obj[attr];
+//         }
+//         return copy;
+//     }
+// }
+
+
 var todoFunctions = {
     generateId: (function() {
         var idCounter = 0;
@@ -36,14 +48,32 @@ var todoFunctions = {
         });
     },
     markTodo: function (todos, idToMark) {
+
+
         // should leave the input argument todos unchanged
         // in the new todo list, all elements will remain unchanged except the on with id: idToMark
         // this element will have its id toggled
         // hint: array.map
+        // var newTodos = todos.slice();
+        // console.log(newTodos.map(function(todo){
+        //     var newTodo = todo.cloneNode(true);
+        //   if (newTodo.id === idToMark){
+        //     // if {todo.done === undefined) {}
+        //     newTodo.done = !newTodo.done;
+        //   }
+        //   return newTodo;
+        // }))
         return todos.map(function(todo){
-          if (todo.id === idToMark){
-            // if {todo.done === undefined) {}
-            todo.done = !todo.done;
+            // var newTodo = utilties.clone(todo);
+          if (todo.id === idToMark) {
+              // if {todo.done === undefined) {}
+              if (todo.done === true) {
+                  todo.done = false;
+              }
+              else if (todo.done === false) {
+                  todo.done = true;
+              }
+            //   newTodo.done = !newTodo.done;
           }
           return todo;
         });
