@@ -108,10 +108,10 @@ var controller = {
         // add markTodo button
         var markButtonNode = document.createElement('button')
         if (todoData.done){
-          markButtonNode.innerHTML = "DONE!";
+          markButtonNode.innerHTML = '&#10004';
         }
         else {
-          markButtonNode.innerHTML = "NOT DONE!";
+          markButtonNode.innerHTML = '&#10008';
         }
         markButtonNode.addEventListener('click', function(event) {
             state = todoFunctions.markTodo(state,todoData.id);
