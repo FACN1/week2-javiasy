@@ -17,12 +17,10 @@ QUnit.test("deleteTodo function", function(assert) {
        { id: -2, description: 'second todo'},
        { id: -1, description: 'third todo'}
     ];
-    var result = todo.todoFunctions.deleteTodo(input, -1);
-    var expected = output1;
-    assert.deepEqual(result, expected, "Removed the third todo (id: -1) from todoList" );
-    var result = todo.todoFunctions.deleteTodo(input, -3);
-    var expected = output2;
-    assert.deepEqual(result, expected, "Removed the third todo (id: -3) from todoList" );
+
+
+    assert.deepEqual(todo.todoFunctions.deleteTodo(input, -1), output1, "Removed the third todo (id: -1) from todoList" );
+    assert.deepEqual(todo.todoFunctions.deleteTodo(input, -3), output2, "Removed the third todo (id: -3) from todoList" );
 
 
 
