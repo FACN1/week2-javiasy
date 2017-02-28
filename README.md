@@ -18,3 +18,11 @@ Week 2 project for Javiasy - make a to do list
     Use Array.prototype.filter method to remove any todo object within the array with the given id.
 - Tests
     Test the deleteTodo function with a mock array, and test with a hardcoded output.
+
+## DOM Manipulation
+
+### Create Todo Node
+
+
+### Add to Todo form
+ 
