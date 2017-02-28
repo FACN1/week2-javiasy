@@ -3,7 +3,7 @@ var todo = (function() {
     // you can access these on todo.todoFunctions
     // For part one we expect you to use tdd
 
-    // each of these functions takes an array todos
+    // each of these functions takes an array of todos
     // [todo]
     // where a todo has the form
     // {
@@ -30,7 +30,10 @@ var todoFunctions = {
         // should leave the input argument todos unchanged
         // return a new array, this should not contain any todo with an id of idToDelete
         // hint: array.filter
-        return state; //change me!
+
+        return todos.filter(function(todo) {
+            return (todo.id === idToDelete) ? false : true;
+        });
     },
     markTodo: function (todos, idToMark) {
         // should leave the input argument todos unchanged
@@ -103,6 +106,6 @@ addTodoForm.addEventListener('submit', function(event) {
 controller.render(state);
 
 
-
+return { todoFunctions: todoFunctions };
 
 })();
