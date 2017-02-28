@@ -25,12 +25,12 @@ var todoFunctions = {
         // return a new array, it should contain todos with the newTodo added to the end.
         // add an id to the newTodo. You can use the generateId function to create an id.
         // hint: array.concat
+        return todos.concat(newTodo);
     },
     deleteTodo: function (todos, idToDelete) {
         // should leave the input argument todos unchanged
         // return a new array, this should not contain any todo with an id of idToDelete
         // hint: array.filter
-
         return todos.filter(function(todo) {
             return (todo.id === idToDelete) ? false : true;
         });
@@ -106,6 +106,6 @@ addTodoForm.addEventListener('submit', function(event) {
 controller.render(state);
 
 
-return { todoFunctions: todoFunctions };
+return { todoFunctions: todoFunctions, state: state };
 
 })();
