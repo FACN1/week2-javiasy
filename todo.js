@@ -82,8 +82,13 @@ var controller = {
         // you will need to use addEventListener
 
         // add span holding description
+        var spanNode = document.createElement('span');
+        spanNode.innerHTML = '<p>' + todoData.description + '</p>';
+        todoNode.appendChild(spanNode);
+
         // this adds the delete button
         var deleteButtonNode = document.createElement('button');
+        deleteButtonNode.innerHTML = 'Delete';
         deleteButtonNode.addEventListener('click', function(event) {
             state = todoFunctions.deleteTodo(state, todoData.id);
             controller.render(state);
@@ -91,6 +96,18 @@ var controller = {
         todoNode.appendChild(deleteButtonNode);
 
         // add markTodo button
+        var markButtonNode = document.createElement('button')
+        if (todoData.done){
+          markButtonNode.innerHTML = '&#10004';
+        }
+        else {
+          markButtonNode.innerHTML = '&#10008';
+        }
+        markButtonNode.addEventListener('click', function(event) {
+            state = todoFunctions.markTodo(state,todoData.id);
+            controller.render(state);
+        });
+        todoNode.appendChild(markButtonNode);
 
         // add classes for css
 
@@ -104,7 +121,7 @@ var controller = {
         });
 
         // you may want to add a class for css
-        console.log(todoListWrapper.firstChild);
+        /*console.log(todoListWrapper.firstChild);*/
         todoListWrapper.replaceChild(todoListNode, todoListWrapper.firstChild);
     }
 }
@@ -120,7 +137,9 @@ addTodoForm.addEventListener('submit', function(event) {
         description: description
     };
 
+
     state = todoFunctions.addTodo(state, newTodo);  // addTodo pure function doesn't mutate the state array, but this does change it.
+
     controller.render(state);
 });
 
