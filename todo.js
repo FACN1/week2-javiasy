@@ -40,6 +40,13 @@ var todoFunctions = {
         // in the new todo list, all elements will remain unchanged except the on with id: idToMark
         // this element will have its id toggled
         // hint: array.map
+        return todos.map(function(todo){
+          if (todo.id === idToMark){
+            // if {todo.done === undefined) {}
+            todo.done = !todo.done;
+          }
+          return todo;
+        });
     },
     sortTodos: function(todos, sortFunction) {
         // stretch goal! Do this last
