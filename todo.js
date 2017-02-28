@@ -106,6 +106,18 @@ var controller = {
         todoNode.appendChild(deleteButtonNode);
 
         // add markTodo button
+        var markButtonNode = document.createElement('button')
+        if (todoData.done){
+          markButtonNode.innerHTML = "DONE!";
+        }
+        else {
+          markButtonNode.innerHTML = "NOT DONE!";
+        }
+        markButtonNode.addEventListener('click', function(event) {
+            state = todoFunctions.markTodo(state,todoData.id);
+            controller.render(state);
+        });
+        todoNode.appendChild(markButtonNode);
 
         // add classes for css
 
