@@ -13,16 +13,6 @@ var todo = (function() {
     // }
 
 
-// var utilities = { REMOVE THIS
-//     clone: function(obj) {
-//         if (null == obj || "object" != typeof obj) return obj;
-//         var copy = obj.constructor();
-//         for (var attr in obj) {
-//             if (obj.hasOwnProperty(attr)) copy[attr] = obj[attr];
-//         }
-//         return copy;
-//     }
-// }
 
 
 var todoFunctions = {
@@ -122,14 +112,15 @@ var controller = {
 // bind create todo form
 var addTodoForm = document.getElementById('add-todo');
 addTodoForm.addEventListener('submit', function(event) {
-    // https://developer.mozilla.org/en-US/docs/Web/Events/submit
-    // what does event.preventDefault do?
-    // what is inside event.target?
-    console.log('click');
+    console.log('click');   // Debug to verify that the click event has registered
+    event.preventDefault(); // addEventListener callback arg + preventDefault() cancels the default submit action (reloads the page)
 
-    var description = "?"; //event.target ....
+    var description = event.target.description.value; // The .description is set with the name="description" input attribute
+    var newTodo = { // Create a new todo item object
+        description: description
+    };
 
-    state = state // change this!! you should use todoFunctions.addTodoForm
+    state = todoFunctions.addTodo(state, newTodo);  // addTodo pure function doesn't mutate the state array, but this does change it.
     controller.render(state);
 });
 
