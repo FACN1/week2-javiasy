@@ -30,11 +30,10 @@ var todoFunctions = {
         // should leave the input argument todos unchanged
         // return a new array, this should not contain any todo with an id of idToDelete
         // hint: array.filter
-        var out = [
-            { id: -3, description: 'first todo'},
-            { id: -2, description: 'second todo'}
-        ]; //change me!
-        return out;
+
+        return todos.filter(function(todo) {
+            return (todo.id === idToDelete) ? false : true;
+        });
     },
     markTodo: function (todos, idToMark) {
         // should leave the input argument todos unchanged
