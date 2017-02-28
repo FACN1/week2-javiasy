@@ -76,7 +76,7 @@ var controller = {
     render: function(state) {
         var todoListWrapper = document.getElementById('todo-container');
         var todoListNode = document.createElement('ul');
-        state.forEach(finction(todoData) {
+        state.forEach(function(todoData) {
             todoListNode.appendChild(controller.createTodoNode(totoData));
         });
 
