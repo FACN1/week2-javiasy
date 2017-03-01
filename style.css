@@ -128,8 +128,8 @@ button:focus, input[type=submit] {
 }
 
 .new-description {
-	height: 36px;
-	width: calc(100% - 40px);
+    height: 36px;
+    width: calc(100% - 40px);
     margin: 5px;
     color: #000;
     background-color: transparent;
