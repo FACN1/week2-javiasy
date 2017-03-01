@@ -19,6 +19,13 @@ Week 2 project for Javiasy - make a to do list
 - Tests
     Test the deleteTodo function with a mock array, and test with a hardcoded output.
 
+**sortfunction**
+
+alphabetSort takes each character, compares them, and returns them to be sorted by sortTodos accordingly
+
+sortTodos sorts the given todo array using .sort(func). If no func argument is given use alphabet sort
+
+
 ## DOM Manipulation
 
 ### Function - createTodoNode
