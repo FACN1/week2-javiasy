@@ -127,7 +127,12 @@ var controller = {
         todoNode.addEventListener('click', function(event) {
             state = todoFunctions.markTodo(state,todoData.id);
             controller.render(state);
+
+
         });
+
+
+
 
         return todoNode;
     },
@@ -158,8 +163,26 @@ addTodoForm.addEventListener('submit', function(event) {
 
     state = todoFunctions.addTodo(state, newTodo);  // addTodo pure function doesn't mutate the state array, but this does change it.
 
+
+
     controller.render(state);
 });
+
+var sortButtonNode = document.createElement('button'); //create <button></button>
+sortButtonNode.innerHTML = 'Sort Alphabetically'; //add innerHTML <button>Sort Alphabetically</button>
+
+//add event listener to sortButtonNode to call the sortfunction when clicked
+sortButtonNode.addEventListener('click',function(event) {
+    state=todoFunctions.sortTodos(state);
+    controller.render(state);
+});
+
+sortButtonNode.className = "sort-button"; //<button class="sort-button">Sort Alphabetically</button>
+
+//insert button before the to-do list container in the body
+document.body.insertBefore(sortButtonNode,document.getElementById("todo-container"))
+
+
 
 controller.render(state);
 
