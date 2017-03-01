@@ -207,7 +207,7 @@ var todo = (function() {
     });
 
     var sortButtonNode = document.createElement('button'); //create <button></button>
-    sortButtonNode.innerHTML = 'Sort Alphabetically'; //add innerHTML <button>Sort Alphabetically</button>
+    sortButtonNode.innerHTML = 'Sort / فرز / סוג'; //add innerHTML <button>Sort Alphabetically</button>
 
     //add event listener to sortButtonNode to call the sortfunction when clicked
     sortButtonNode.addEventListener('click',function(event) {
