@@ -127,7 +127,18 @@ var controller = {
         todoNode.addEventListener('click', function(event) {
             state = todoFunctions.markTodo(state,todoData.id);
             controller.render(state);
+
+
         });
+
+
+        var sortButtonNode = document.createElement('button');
+        sortButtonNode.innerHTML = 'Sort Alphabetically';
+        sortButtonNode.addEventListener('click',function(event) {
+            state=todoFunctions.sortTodos(state);
+            controller.render(state);
+        });
+        todoNode.appendChild(sortButtonNode)
 
         return todoNode;
     },
