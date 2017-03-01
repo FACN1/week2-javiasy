@@ -193,7 +193,7 @@ QUnit.test("sortfunction test", function(assert){
     ];
 
 
-
+    
     result = todo.todoFunctions.sortTodos(input4);
 
     assert.deepEqual(result,output4,"fourth sort test, using longer descriptions");
