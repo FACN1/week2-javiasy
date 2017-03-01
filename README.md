@@ -21,15 +21,17 @@ Joudy edit this
 - Tests
     Test the deleteTodo function with a mock array, and test with a hardcoded output.
 
-**Marktodo**
+**markTodo function**
 
-Mavis edit this
+- Use the map function to look through the to do's and change to one with the given ID to toggle done.
+- Have to create a new object using Object.keys().forEach() to avoid reference the same objects. array.slice() will create a new array but this will refer to the same objects.
+- We use the ternary operator to check the todo with the ID to mark and toggle it to the opposite.
 
-**sortfunction**
+**Sort functions**
 
-alphabetSort takes each character, compares them, and returns them to be sorted by sortTodos accordingly
+- *alphabetSort* takes each character, compares them, and returns them to be sorted by sortTodos accordingly
 
-sortTodos sorts the given todo array using .sort(func). If no func argument is given use alphabet sort
+- *sortTodos* sorts the given todo array using .sort(func). If no func argument is given use alphabet sort
 
 **EditTodos**
 
