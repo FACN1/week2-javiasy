@@ -49,10 +49,6 @@ table {
 
 /* END RESET */
 
-body {
-	/*padding: 16px 40px 16px 16px;*/
-}
-
 form, input, li {
 	box-sizing: border-box;
 }
@@ -70,7 +66,6 @@ button:focus, input[type=submit] {
 	padding: 10px;
 	height: 70px;
 	background-color: #424242;
-	/*border-radius: 2px 2px 0 0 ;*/
 	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.32);
 }
 
@@ -133,8 +128,8 @@ button:focus, input[type=submit] {
 }
 
 .new-description {
-    height: 40px;
-    width: 95%;
+    height: 36px;
+    width: calc(100% - 40px);
     margin: 5px;
     color: #000;
     background-color: transparent;
@@ -145,9 +140,9 @@ button:focus, input[type=submit] {
     font-size: 14px;
     font-weight: 300;
 }
+
 .new-description:focus {
     border-color: #80cbc4;
-    border-size: 2px;
     outline: none;
 }
 
@@ -174,22 +169,20 @@ button:focus, input[type=submit] {
 
 .todo-list li span {
 	float: left;
-	width: 90%;
+	width: 87%;
 	height: 100%;
 	overflow: hidden;
 }
 
 .todo-list li button {
 	position: absolute;
-	top: 7px;
+	top: 12px;
 	right: 7px;
-	/*margin-right: 20px;*/
 	height: 35px;
 	width: 35px;
 	padding: 0;
 	border-radius: 100%;
 	border: none;
-	/*box-shadow: -2px 2px 4px rgba(0, 0, 0, 0.32);*/
 	background-color: transparent;
 	transition: 0.2s;
 }
@@ -206,6 +199,7 @@ button:focus, input[type=submit] {
 .todo-list li button.edit-button {
     right: 39px;
 }
+
 .mark-todo input[type=submit] {
     display: none;
 }
