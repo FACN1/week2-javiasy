@@ -79,10 +79,22 @@ var todo = (function() {
             var newtodos=todos.slice();
             //use sort with alphabetSort as default
             return newtodos.sort(func);
+        },
 
+        editTodos: function(todos, idToEdit, newDescription) {
+            return newTodos = todos.map(function(todo) {
+                var todoCopy = {};
+                Object.keys(todo).forEach(function(k) {
+                    todoCopy[k] = todo[k];
+                }); // Loop through keys of todo object, and assign k/v pairs to todoCopy
 
+                if (todoCopy.id == idToEdit) {
+                    todoCopy.description = newDescription;  // If id needs to be edited, update its description
+                    todoCopy.beingEdited = false;
+                }
+                return todoCopy;
+            });
         }
-
       }
 
     // part 2. The DOM
@@ -96,11 +108,12 @@ var todo = (function() {
         createTodoNode: function(todoData) {
             // create new li element for this todo item
             var todoNode = document.createElement('li');
+            todoNode.className = 'mark-todo';
 
             // add span holding description
             var spanNode = document.createElement('span');
-            spanNode.innerHTML = '<p>' + todoData.description + '</p>';
-            todoNode.appendChild(spanNode);
+            spanNode.className = 'mark-todo';
+            spanNode.innerHTML = '<p class="mark-todo">' + todoData.description + '</p>';
 
             // add delete button
             var deleteButtonNode = document.createElement('button');
@@ -111,7 +124,31 @@ var todo = (function() {
                 state = todoFunctions.deleteTodo(state, todoData.id);
                 controller.render(state);
             });
-            todoNode.appendChild(deleteButtonNode);
+
+            // add edit button
+            var editButtonNode = document.createElement('button');
+            editButtonNode.className = 'material-icons edit-button';
+            editButtonNode.innerHTML = 'edit';
+
+            var debugValue = '';
+            editButtonNode.addEventListener('click', function(event) {
+                var allowEdit = true;
+                state.forEach(function(todo) {
+                    if(todo.beingEdited) allowEdit = false;
+                });
+
+                if (allowEdit) {
+                    todoData.beingEdited = true;
+                    spanNode.innerHTML = '<form id="edit-todo"><input class="new-description" value="' + todoData.description + '" name="newDescription"><input type="submit"></form>';
+
+                    document.getElementById('edit-todo').addEventListener('submit', function(event) {
+                        event.preventDefault();
+                        state = todoFunctions.editTodos(state, todoData.id, event.target.newDescription.value);
+                        console.log(state);
+                        controller.render(state);
+                    });
+                }
+            });
 
             // change li style if todo item is complete
             if (todoData.done) {
@@ -121,12 +158,21 @@ var todo = (function() {
             }
 
             // add event listener to li element to mark completion of todo item
+
             todoNode.addEventListener('click', function(event) {
-                state = todoFunctions.markTodo(state,todoData.id);
-                controller.render(state);
+                var eventClass = event.srcElement.className;
+                // console.log(event.srcElement.tagName.toLowerCase() === 'li');
 
-
+                if (eventClass === 'mark-todo') {
+                    state = todoFunctions.markTodo(state,todoData.id);
+                    controller.render(state);
+                }
             });
+            // console.log(debugValue);
+
+            todoNode.appendChild(spanNode);
+            todoNode.appendChild(deleteButtonNode);
+            todoNode.appendChild(editButtonNode);
 
             return todoNode;
         },
