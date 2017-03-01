@@ -33,7 +33,7 @@ sortTodos sorts the given todo array using .sort(func). If no func argument is g
 
 **EditTodos**
 
-Elias edit this
+- todo: Write about todo app
 
 
 ## DOM Manipulation
@@ -48,9 +48,12 @@ Elias edit this
 
 *sortButtonNode*: Adds a button which sorts the to do list alphabetically by calling the sortTodos function when clicked (using addEventListener). Has a class name of "sort-todos" for CSS styling and using insertBefore is appended onto the body after the submit form but before the to do list.
 
-*edit button node*
+**edit button node**
 
-Elias do this
+- Add an edit button for each state child / todo list item.
+- There is an event listener for click events on this edit button, which replaces the spanNode paragraph with an input and submit button
+- There is an event listener inside the edit button event listener, which listens to submit events (enter keyboard key, since button is hidden for design purposes)
+- On a submit event, the editTodos pure function is used to generate a new todos array, which is then rendered on the page
 
 ### Add to Todo form
 
