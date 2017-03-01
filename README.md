@@ -12,8 +12,8 @@ Week 2 project for Javiasy - make a to do list
 ### todoFunctions
 
 **addTodo function**
+puts the array in a new array in which its id is increased by 1
 
-Joudy edit this
 
 **deleteTodo function**
 - Pure function
