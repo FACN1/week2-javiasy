@@ -59,8 +59,12 @@ var todoFunctions = {
     },
 
     alphabetSort: function(a,b){
+
+        // extract the description from a and b and convert to upper case
         var descriptionA = a.description.toUpperCase();
         var descriptionB = b.description.toUpperCase();
+
+        //returns true, false or equal to pass to sort function
         if ( descriptionA>descriptionB){
             return 1;
         }
@@ -71,7 +75,11 @@ var todoFunctions = {
     },
 
     sortTodos: function(todos, func=todo.todoFunctions.alphabetSort){
+      
+        // copy array
         var newtodos=todos.slice();
+
+        // sort the copy and return it
         return newtodos.sort(func);
 
 
