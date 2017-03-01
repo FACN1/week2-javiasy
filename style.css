@@ -50,12 +50,155 @@ table {
 /* END RESET */
 
 body {
-    padding-left: 16px;
-    padding-right: 16px;
+	/*padding: 16px 40px 16px 16px;*/
 }
-.todo-items-container li {
-    margin: 10px 0px;
-    padding: 10px;
-    border: 1px solid #c7c7c7;
-    border-radius: 2px;
+
+form, input, li {
+	box-sizing: border-box;
+}
+
+button:hover {
+	cursor: pointer;
+}
+
+button:focus, input[type=submit] {
+	outline: none;
+}
+
+.submit-form {
+	position: relative;
+	padding: 10px;
+	height: 70px;
+	background-color: #424242;
+	/*border-radius: 2px 2px 0 0 ;*/
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.32);
+}
+
+.submit-form input[type=text] {
+	float: left;
+	height: 40px;
+	margin: 5px;
+	width: calc(100% - 70px);
+	color: #9e9e9e;
+	background-color: transparent;
+	border: none;
+	border-bottom: 1px solid #9e9e9e;
+	transition: 0.5s;
+	font-size: 23px;
+	font-weight: 200;
+}
+
+.submit-form input[type=text]:focus {
+	color: white;
+	border-color: #80cbc4;
+	outline: none;
+}
+
+/* clearfix hack */
+.submit-form input[type=text]::after {
+	content: '';
+	clear: both;
+	display: table;
+}
+
+.submit-form input[type=submit] {
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
+	height: 50px;
+	width: 50px;
+	padding: 0;
+	border: none;
+	border-radius: 100%;
+	line-height: 50px;
+	color: white;
+	background-color: #078B75;
+	font-size: 30px;
+	font-weight: 100;
+	box-shadow: 0 5px 8px rgba(0, 0, 0, 0.32);
+	transition: 0.2s;
+}
+
+.submit-form input[type=submit]:hover {
+	cursor: pointer;
+	transform: scale(1.075);
+}
+
+.submit-form input[type=submit]:active {
+	transform: scale(1);
+}
+
+.submit-form {
+	margin-bottom: 10px;
+}
+
+.todo-list li {
+	position: relative;
+	min-height: 50px;
+	padding: 5px 0 5px 5px;
+    border-bottom: 1px solid #c7c7c7;
+	transition: 0.1s;
+	font-family: Calibri;
+	font-weight: 200;
+	overflow: auto;
+}
+
+.todo-list li:hover {
+	cursor: pointer;
+	background-color: #eee;
+}
+
+.todo-list li p {
+	margin: 5px 0 0 7px;
+}
+
+.todo-list li span {
+	float: left;
+	width: 90%;
+	height: 100%;
+	overflow: hidden;
+}
+
+.todo-list li button {
+	position: absolute;
+	top: 7px;
+	right: 7px;
+	/*margin-right: 20px;*/
+	height: 35px;
+	width: 35px;
+	padding: 0;
+	border-radius: 100%;
+	border: none;
+	/*box-shadow: -2px 2px 4px rgba(0, 0, 0, 0.32);*/
+	background-color: transparent;
+	transition: 0.2s;
+}
+
+.todo-list li button:hover {
+	transform: scale(1.2);
+	color: rgb(240, 143, 143);
+}
+
+.todo-list li button:active {
+	transform: scale(1);
+}
+
+/* Desktop */
+
+@media (min-width: 1024px) {
+	body {
+		padding: 16px 40px 16px 16px;
+	}
+
+	.todo-list {
+		box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+	}
+
+	.submit-form, .todo-list {
+		max-width: 600px;
+		margin: auto;
+	}
+    .submit-form {
+        border-radius: 2px 2px 0 0;
+    }
 }

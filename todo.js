@@ -12,9 +12,6 @@ var todo = (function() {
     //   done: /*true or false, indicates whether the todo is done*/
     // }
 
-
-
-
 var todoFunctions = {
     generateId: (function() {
         var idCounter = 0;
@@ -53,12 +50,11 @@ var todoFunctions = {
                 todoCopy[k] = todo[k]
             }); // Loop through keys of todo object, and assign k/v pairs to todoCopy
 
-
-          if (todoCopy.id === idToMark) {
-              todoCopy.done = (todoCopy.done) ? false : true;
-              // if todoCopy is true, change to false (toggle)
-          }
-          return todoCopy;
+            if (todoCopy.id === idToMark) {
+                todoCopy.done = (todoCopy.done) ? false : true;
+                // if todoCopy is true, change to false (toggle)
+            }
+            return todoCopy;
         });
     },
     sortTodos: function(todos, sortFunction) {
@@ -78,37 +74,37 @@ var state = [
 
 var controller = {
     createTodoNode: function(todoData) {
+        // create new li element for this todo item
         var todoNode = document.createElement('li');
-        // you will need to use addEventListener
 
         // add span holding description
         var spanNode = document.createElement('span');
         spanNode.innerHTML = '<p>' + todoData.description + '</p>';
         todoNode.appendChild(spanNode);
 
-        // this adds the delete button
+        // add delete button
         var deleteButtonNode = document.createElement('button');
-        deleteButtonNode.innerHTML = 'Delete';
+        deleteButtonNode.className = 'material-icons';
+        deleteButtonNode.innerHTML = 'delete';
+
         deleteButtonNode.addEventListener('click', function(event) {
             state = todoFunctions.deleteTodo(state, todoData.id);
             controller.render(state);
         });
         todoNode.appendChild(deleteButtonNode);
 
-        // add markTodo button
-        var markButtonNode = document.createElement('button')
-        if (todoData.done){
-          markButtonNode.innerHTML = '&#10004';
-        } else {
-          markButtonNode.innerHTML = '&#10008';
+        // change li style if todo item is complete
+        if (todoData.done) {
+            spanNode.style.textDecoration = 'line-through';
+            todoNode.style.color = 'gray';
+            todoNode.style.backgroundColor = '#ecfff0';
         }
-        markButtonNode.addEventListener('click', function(event) {
+
+        // add event listener to li element to mark completion of todo item
+        todoNode.addEventListener('click', function(event) {
             state = todoFunctions.markTodo(state,todoData.id);
             controller.render(state);
         });
-        todoNode.appendChild(markButtonNode);
-
-        // add classes for css
 
         return todoNode;
     },
@@ -144,7 +140,5 @@ addTodoForm.addEventListener('submit', function(event) {
 
 controller.render(state);
 
-
 return { todoFunctions: todoFunctions, state: state };
-
 })();
