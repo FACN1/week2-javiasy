@@ -140,19 +140,68 @@ QUnit.test("sortfunction test", function(assert){
         { id: 1, description: 'b', done: false},
         { id: 0, description: 'c', done: false}
     ];
+
     var input2 = [
-        { id: 0, description: 'first todo', done: false},
-        { id: 1, description: 'second todo', done: false},
-        { id: 2, description: 'third todo', done: false}
+        { id: 0, description: 'c', done: false},
+        { id: 2, description: 'a', done: false},
+        { id: 1, description: 'b', done: false},
     ];
     var output2 = [
-        { id: 0, description: 'first todo', done: true},
-        { id: 1, description: 'second todo', done: false},
-        { id: 2, description: 'third todo', done: false}
+        { id: 2, description: 'a', done: false},
+        { id: 1, description: 'b', done: false},
+        { id: 0, description: 'c', done: false}
     ];
-    result = todo.todoFunctions.sortTodos(input1)
+
+    result = todo.todoFunctions.sortTodos(input1);
 
     assert.deepEqual(result,output1,"first sort test");
+
+    result = todo.todoFunctions.sortTodos(input2);
+
+    assert.deepEqual(result,output2,"second sort test");
+
+    var input3 = [
+        { description: '3', done: false},
+        { description: '2', done: false},
+        { description: '1', done: false},
+    ];
+    var output3 = [
+        { description: '1', done: false},
+        { description: '2', done: false},
+        { description: '3', done: false}
+    ];
+
+
+        result = todo.todoFunctions.sortTodos(input3);
+
+        assert.deepEqual(result,output3,"second sort test");
+
+
+});
+
+
+
+
+
+QUnit.test("sort alphabetically", function(assert){
+    var object1 =         {description: 'first todo', done: true};
+    var object2 =         {description: 'second todo', done: false};
+    var object3 =         {description: 'third todo', done: false};
+
+    var result = todo.todoFunctions.alphabetSort(object3,object1);
+    var expected = 1;
+    assert.equal(result,expected,"this is supposed to return true because 'third todo' comes after 'first todo' alphabetically");
+
+    var result = todo.todoFunctions.alphabetSort(object1,object2);
+    var expected = -1;
+    assert.equal(result,expected,"this is supposed to return false because 'second todo' comes after 'first todo' alphabetically");
+
+    var result = todo.todoFunctions.alphabetSort(object2,object2);
+    var expected = 0;
+    assert.equal(result,expected,"this is supposed to return 0 because they are the same");
+
+
+
 
 
 
