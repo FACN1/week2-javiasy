@@ -154,27 +154,49 @@ QUnit.test("sortfunction test", function(assert){
 
     result = todo.todoFunctions.sortTodos(input1);
 
-    assert.deepEqual(result,output1,"first sort test");
+    assert.deepEqual(result,output1,"first sort test (reverse would work)");
+
+    console.log(input1); //use console to check for mutations
 
     result = todo.todoFunctions.sortTodos(input2);
 
     assert.deepEqual(result,output2,"second sort test");
 
     var input3 = [
-        { description: '3', done: false},
-        { description: '2', done: false},
-        { description: '1', done: false},
+        { id:0, description: '3', done: false},
+        { id:1, description: '2', done: false},
+        { id:2, description: '1', done: false},
     ];
+
     var output3 = [
-        { description: '1', done: false},
-        { description: '2', done: false},
-        { description: '3', done: false}
+        { id:2, description: '1', done: false},
+        { id:1, description: '2', done: false},
+        { id:0, description: '3', done: false},
     ];
 
 
-        result = todo.todoFunctions.sortTodos(input3);
 
-        assert.deepEqual(result,output3,"second sort test");
+    result = todo.todoFunctions.sortTodos(input3);
+
+    assert.deepEqual(result,output3,"third sort test, use numbers");
+
+    var input4 = [
+        { id:0, description: 'long description 3', done: false},
+        { id:1, description: 'long description 2', done: false},
+        { id:2, description: 'long description 1', done: false},
+    ];
+
+    var output4 = [
+        { id:2, description: 'long description 1', done: false},
+        { id:1, description: 'long description 2', done: false},
+        { id:0, description: 'long description 3', done: false},
+    ];
+
+
+
+    result = todo.todoFunctions.sortTodos(input4);
+
+    assert.deepEqual(result,output4,"fourth sort test, using longer descriptions");
 
 
 });
