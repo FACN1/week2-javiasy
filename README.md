@@ -33,7 +33,9 @@ sortTodos sorts the given todo array using .sort(func). If no func argument is g
 
 **EditTodos**
 
-- todo: Write about todo app
+- The function takes three inputs/arguments: the original todo list array, the id to edit and the new description.
+- An Array.prototype.forEach is used to loop through the array items, and if the current array item object should be edited, a new description is added
+- A beingEdited object is created and set to true. This prevents multiple todo items from being edited at the same time.
 
 
 ## DOM Manipulation
