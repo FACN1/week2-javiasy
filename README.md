@@ -36,6 +36,8 @@ sortTodos sorts the given todo array using .sort(func). If no func argument is g
 
 *markButtonNode*: Adds a button which can be used to toggle between a tick or a cross, using the markTodo function.
 
+*sortButtonNode*: Adds a button which sorts the to do list alphabetically by calling the sortTodos function when clicked (using addEventListener). Has a class name of "sort-todos" for CSS styling and using insertBefore is appended onto the body after the submit form but before the to do list.
+
 ### Add to Todo form
 
 Steps
