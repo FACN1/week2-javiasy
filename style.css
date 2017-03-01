@@ -138,8 +138,9 @@ button:focus, input[type=submit] {
 	padding: 5px 0 5px 5px;
     border-bottom: 1px solid #c7c7c7;
 	transition: 0.1s;
-	font-family: Calibri;
-	font-weight: 200;
+	font-family: 'Roboto', sans-serif;
+	font-size: 14px;
+	font-weight: 300;
 	overflow: auto;
 }
 
