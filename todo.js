@@ -168,14 +168,21 @@ addTodoForm.addEventListener('submit', function(event) {
     controller.render(state);
 });
 
-var sortButtonNode = document.createElement('button');
-sortButtonNode.innerHTML = 'Sort Alphabetically';
+var sortButtonNode = document.createElement('button'); //create <button></button>
+sortButtonNode.innerHTML = 'Sort Alphabetically'; //add innerHTML <button>Sort Alphabetically</button>
+
+//add event listener to sortButtonNode to call the sortfunction when clicked
 sortButtonNode.addEventListener('click',function(event) {
-    event.preventDefault();
     state=todoFunctions.sortTodos(state);
     controller.render(state);
 });
-addTodoForm.appendChild(sortButtonNode)
+
+sortButtonNode.className = "sort-button"; //<button class="sort-button">Sort Alphabetically</button>
+
+//insert button before the to-do list container in the body
+document.body.insertBefore(sortButtonNode,document.getElementById("todo-container"))
+
+
 
 controller.render(state);
 

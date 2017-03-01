@@ -183,6 +183,7 @@ button:focus, input[type=submit] {
 	transform: scale(1);
 }
 
+
 /* Desktop */
 
 @media (min-width: 1024px) {
