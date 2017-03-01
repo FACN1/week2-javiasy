@@ -132,13 +132,7 @@ var controller = {
         });
 
 
-        var sortButtonNode = document.createElement('button');
-        sortButtonNode.innerHTML = 'Sort Alphabetically';
-        sortButtonNode.addEventListener('click',function(event) {
-            state=todoFunctions.sortTodos(state);
-            controller.render(state);
-        });
-        todoNode.appendChild(sortButtonNode)
+
 
         return todoNode;
     },
@@ -169,8 +163,19 @@ addTodoForm.addEventListener('submit', function(event) {
 
     state = todoFunctions.addTodo(state, newTodo);  // addTodo pure function doesn't mutate the state array, but this does change it.
 
+
+
     controller.render(state);
 });
+
+var sortButtonNode = document.createElement('button');
+sortButtonNode.innerHTML = 'Sort Alphabetically';
+sortButtonNode.addEventListener('click',function(event) {
+    event.preventDefault();
+    state=todoFunctions.sortTodos(state);
+    controller.render(state);
+});
+addTodoForm.appendChild(sortButtonNode)
 
 controller.render(state);
 
