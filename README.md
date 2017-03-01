@@ -1,5 +1,5 @@
 # week2-javiasy
-Week 2 project for Javiasy - make a to do list
+Week 2 project for Javiasy - make a to do list. Site [here](https://facn1.github.io/week2-javiasy/).
 
 ## File structure:
 
