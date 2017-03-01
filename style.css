@@ -133,8 +133,8 @@ button:focus, input[type=submit] {
 }
 
 .new-description {
-    float: left;
     height: 40px;
+    width: 95%;
     margin: 5px;
     color: #000;
     background-color: transparent;
@@ -153,7 +153,7 @@ button:focus, input[type=submit] {
 
 .todo-list li {
 	position: relative;
-	min-height: 50px;
+	min-height: 60px;
 	padding: 5px 0 5px 5px;
     border-bottom: 1px solid #c7c7c7;
 	transition: 0.1s;
@@ -205,6 +205,9 @@ button:focus, input[type=submit] {
 
 .todo-list li button.edit-button {
     right: 39px;
+}
+.mark-todo input[type=submit] {
+    display: none;
 }
 
 /* Desktop */
