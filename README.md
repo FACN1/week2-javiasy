@@ -35,7 +35,9 @@ Joudy edit this
 
 **EditTodos**
 
-Elias edit this
+- The function takes three inputs/arguments: the original todo list array, the id to edit and the new description.
+- An Array.prototype.forEach is used to loop through the array items, and if the current array item object should be edited, a new description is added
+- A beingEdited object is created and set to true. This prevents multiple todo items from being edited at the same time.
 
 
 ## DOM Manipulation
@@ -50,9 +52,12 @@ Elias edit this
 
 *sortButtonNode*: Adds a button which sorts the to do list alphabetically by calling the sortTodos function when clicked (using addEventListener). Has a class name of "sort-todos" for CSS styling and using insertBefore is appended onto the body after the submit form but before the to do list.
 
-*edit button node*
+**edit button node**
 
-Elias do this
+- Add an edit button for each state child / todo list item.
+- There is an event listener for click events on this edit button, which replaces the spanNode paragraph with an input and submit button
+- There is an event listener inside the edit button event listener, which listens to submit events (enter keyboard key, since button is hidden for design purposes)
+- On a submit event, the editTodos pure function is used to generate a new todos array, which is then rendered on the page
 
 ### Add to Todo form
 
