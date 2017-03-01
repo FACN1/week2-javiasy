@@ -12,8 +12,13 @@ Week 2 project for Javiasy - make a to do list
 ### todoFunctions
 
 **addTodo function**
-puts the array in a new array in which its id is increased by 1
 
+it gives the newTodo an id, and increases its id every time this.generateId() is used
+newTodo.id = this.generateId();
+
+it creates a new array of the todos array with newTodo added onto the end
+
+return todos.concat(newTodo);
 
 **deleteTodo function**
 - Pure function
