@@ -84,6 +84,9 @@ var controller = {
 
         // add delete button
         var deleteButtonNode = document.createElement('button');
+        deleteButtonNode.className = 'material-icons';
+        deleteButtonNode.innerHTML = 'delete';
+
         deleteButtonNode.addEventListener('click', function(event) {
             state = todoFunctions.deleteTodo(state, todoData.id);
             controller.render(state);
