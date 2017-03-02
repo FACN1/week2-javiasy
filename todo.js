@@ -84,14 +84,18 @@ var todo = (function() {
         editTodos: function(todos, idToEdit, newDescription) {
             return newTodos = todos.map(function(todo) {
                 var todoCopy = {};
+
+                // loop through keys of todo object, and assign k/v pairs to todoCopy
                 Object.keys(todo).forEach(function(k) {
                     todoCopy[k] = todo[k];
-                }); // Loop through keys of todo object, and assign k/v pairs to todoCopy
+                });
 
-                if (todoCopy.id == idToEdit) {
-                    todoCopy.description = newDescription;  // If id needs to be edited, update its description
+                // if todoCopy.id matches idToEdit, update description and beingEdited bool
+                if (todoCopy.id === idToEdit) {
+                    todoCopy.description = newDescription;
                     todoCopy.beingEdited = false;
                 }
+                
                 return todoCopy;
             });
         }
