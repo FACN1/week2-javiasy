@@ -1,25 +1,29 @@
-QUnit.test( "addTodo function", function( assert ) {
-    var testtodos = [
-      { id: -3, description: 'first todo'},
-      { id: -2, description: 'second todo'},
-      { id: -1, description: 'third todo'}
-    ];
+function generator(numberdone,numbernotdone){
+  var arrdone=[];
+	var arrnotdone=[];
+    for (var i=0; i<numberdone;i++){
+        arrdone.push({id:i,description:"description "+i,done:true});
+    };
+    for (var i=numberdone; i<(numberdone+numbernotdone);i++){
+        arrnotdone.push({id:i,description:"description "+i,done:false});
+    };
+	return arrdone.concat(arrnotdone);
+}
 
-    var result = todo.todoFunctions.addTodo(testtodos,{id: 0,description: 'fourth todo'});
-    var expected =[
-        { id: -3, description: 'first todo'},
-        { id: -2, description: 'second todo'},
-        { id: -1, description: 'third todo'},
-        { id: 0, description: 'fourth todo'}
-    ];
+QUnit.test( "addTodo function", function( assert ) {
+  var testtodos = generator(3,0)
+
+  // [
+  //   { id: 0, description: 'description 1'},
+  //   { id: 1, description: 'description 2'},
+  //   { id: 2, description: 'description 3'}
+  // ];
+
+    var result = todo.todoFunctions.addTodo(testtodos.slice(0,2),testtodos.slice(2));
+    var expected =testtodos;
 
     var result2 = todo.todoFunctions.addTodo(testtodos,{id: null, description: "fourth todo"})
-    var expected2 =[
-        { id: -3, description: 'first todo'},
-        { id: -2, description: 'second todo'},
-        { id: -1, description: 'third todo'},
-        { id: 1, description: 'fourth todo'}
-    ];
+    var expected2 =testtodos.concat({ id: 1, description: 'fourth todo'});
 
     var result3 = todo.todoFunctions.addTodo(testtodos,{description: "fourth todo"})
     var expected3 =[
