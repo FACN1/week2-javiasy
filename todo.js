@@ -186,7 +186,7 @@ var todo = (function() {
                 var eventClass = event.srcElement.className;
                 // console.log(event.srcElement.tagName.toLowerCase() === 'li');
 
-                if (eventClass.includes('mark-todo')) {
+                if (!(eventClass.indexOf('mark-todo') === -1)) {
                     state = todoFunctions.markTodo(state,todoData.id);
                     controller.render(state);
                 }
