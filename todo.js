@@ -221,7 +221,7 @@ var todo = (function() {
 
         var description = event.target.description.value; // The .description is set with the name="description" input attribute
 
-        if (event.target.description.value != '') {
+        if (event.target.description.value.trim() != '') {
             // create a new todo object
             var newTodo = { description: description };
             event.target.description.value = '';
