@@ -51,7 +51,7 @@ var todo = (function() {
                 }); // Loop through keys of todo object, and assign k/v pairs to todoCopy
 
                 if (todoCopy.id === idToMark) {
-                    todoCopy.done = (todoCopy.done) ? false : true;
+                    todoCopy.done = !todoCopy.done;
                     // if todoCopy is true, change to false (toggle)
                 }
                 return todoCopy;
