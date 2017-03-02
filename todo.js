@@ -134,7 +134,9 @@ var todo = (function() {
             editButtonNode.addEventListener('click', function(event) {
                 var allowEdit = true;
                 state.forEach(function(todo) {
-                    if(todo.beingEdited) allowEdit = false;
+                    if(todo.beingEdited) {
+                        allowEdit = false;
+                    }
                 });
 
                 if (allowEdit) {
