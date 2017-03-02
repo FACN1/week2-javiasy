@@ -53,7 +53,7 @@ var todo = (function() {
                 }); // Loop through keys of todo object, and assign k/v pairs to todoCopy
 
                 if (todoCopy.id === idToMark) {
-                    todoCopy.done = (todoCopy.done) ? false : true;
+                    todoCopy.done = !todoCopy.done;
                     // if todoCopy is true, change to false (toggle)
                 }
                 return todoCopy;
@@ -214,7 +214,7 @@ if (event.target.description.value!="")
     });
 
     var sortButtonNode = document.createElement('button'); //create <button></button>
-    sortButtonNode.innerHTML = 'Sort Alphabetically'; //add innerHTML <button>Sort Alphabetically</button>
+    sortButtonNode.innerHTML = 'Sort / فرز / סוג'; //add innerHTML <button>Sort Alphabetically</button>
 
     //add event listener to sortButtonNode to call the sortfunction when clicked
     sortButtonNode.addEventListener('click',function(event) {
