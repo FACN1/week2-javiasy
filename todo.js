@@ -24,8 +24,10 @@ var todo = (function() {
             // return a new array, it should contain todos with the newTodo added to the end.
             // add an id to the newTodo. You can use the generateId function to create an id.
             // hint: array.concat
+
             newTodo.id = this.generateId();
             return todos.concat(newTodo);
+
         },
         deleteTodo: function (todos, idToDelete) {
             // should leave the input argument todos unchanged
@@ -189,14 +191,19 @@ var todo = (function() {
 
     // bind create todo form
     var addTodoForm = document.getElementById('add-todo');
+
+
+
     addTodoForm.addEventListener('submit', function(event) {
         console.log('click');   // Debug to verify that the click event has registered
         event.preventDefault(); // addEventListener callback arg + preventDefault() cancels the default submit action (reloads the page)
 
         var description = event.target.description.value; // The .description is set with the name="description" input attribute
+if (event.target.description.value!="")
+{
         var newTodo = { // Create a new todo item object
             description: description
-        };
+        };}
         event.target.description.value = '';
 
         state = todoFunctions.addTodo(state, newTodo);  // addTodo pure function doesn't mutate the state array, but this does change it.
