@@ -114,7 +114,12 @@ var todo = (function() {
             // add span holding description
             var spanNode = document.createElement('span');
             spanNode.className = 'mark-todo';
-            spanNode.innerHTML = '<p class="mark-todo">' + todoData.description + '</p>';
+            var paragraphElement = document.createElement('p');
+            paragraphElement.className = 'mark-todo';
+            paragraphElement.textContent = todoData.description;
+
+            spanNode.appendChild(paragraphElement);
+            // spanNode.innerHTML = '<p class="mark-todo">' + todoData.description + '</p>';
 
             // add delete button
             var deleteButtonNode = document.createElement('button');
@@ -142,7 +147,22 @@ var todo = (function() {
 
                 if (allowEdit) {
                     todoData.beingEdited = true;
-                    spanNode.innerHTML = '<form id="edit-todo"><input class="new-description" value="' + todoData.description + '" name="newDescription"><input type="submit"></form>';
+                    var formNode = document.createElement('form');
+                    formNode.id = 'edit-todo';
+                    var inputNode = [document.createElement('input'), document.createElement('input')];
+                    inputNode[0].className = 'new-description';
+                    inputNode[0].value = todoData.description;
+                    inputNode[0].name = 'newDescription';
+                    inputNode[1].type = 'submit';
+
+
+                    formNode.appendChild(inputNode[0]);
+                    formNode.appendChild(inputNode[1]);
+
+                    spanNode.removeChild(spanNode.firstChild);
+                    spanNode.appendChild(formNode);
+
+                    // spanNode.innerHTML = '<form id="edit-todo"><input class="new-description" value="' + todoData.description + '" name="newDescription"><input type="submit"></form>';
 
                     document.getElementById('edit-todo').addEventListener('submit', function(event) {
                         event.preventDefault();
