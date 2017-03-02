@@ -62,17 +62,6 @@ QUnit.test("deleteTodo function", function(assert) {
     assert.deepEqual(deleter(badinput, 1), badinput, "Test for no id element" );
 
 
-
-    /*
-    Expected input:
-        todos -> [todo0, todo1, todo2]
-        todo -> [id, description, done]
-        types -> [int, string, boolean]
-
-        [todo0, todo1, todo2]
-    Expected output:
-        [todo0, todo1]
-    */
 });
 
 QUnit.test("markTodo function", function(assert) {
@@ -97,12 +86,7 @@ QUnit.test("markTodo function", function(assert) {
         { id: 2, description: 'third todo', done: false}
     ];
 
-    // var output2 = [
-    //    { id: -2, description: 'second todo'},
-    //    { id: -1, description: 'third todo'}
-    // ];
 
-    // var badinput = [1,3,4]
 
     var marker = todo.todoFunctions.markTodo;
 
@@ -110,22 +94,7 @@ QUnit.test("markTodo function", function(assert) {
     assert.deepEqual(marker(input1, 2), output1, "Marked the third todo as done" );
     assert.deepEqual(marker(input1, 2), output1, "Marked the third todo as done" );
     assert.deepEqual(marker(input2, 0), output2, "Marked the first todo as done" );
-    // assert.deepEqual(market(input1, -3), output2, "Removed the third todo (id: -3) from todoList" );
-    // assert.deepEqual(marker(input, 1), input, "No id should return the same" );
-    // assert.deepEqual(marker(badinput, 1), badinput, "Test for no id element" );
 
-
-
-    /*
-    Expected input:
-        todos -> [todo0, todo1, todo2]
-        todo -> [id, description, done]
-        types -> [int, string, boolean]
-
-        [todo0, todo1, todo2]
-    Expected output:
-        [todo0, todo1]
-    */
 })
 
 QUnit.test("sortfunction test", function(assert){
@@ -193,7 +162,7 @@ QUnit.test("sortfunction test", function(assert){
     ];
 
 
-    
+
     result = todo.todoFunctions.sortTodos(input4);
 
     assert.deepEqual(result,output4,"fourth sort test, using longer descriptions");
