@@ -32,7 +32,7 @@ var todo = (function() {
             // return a new array, this should not contain any todo with an id of idToDelete
             // hint: array.filter
             return todos.filter(function(todo) {
-                return (todo.id === idToDelete) ? false : true;
+                return todo.id !== idToDelete;
             });
         },
         markTodo: function (todos, idToMark) {
