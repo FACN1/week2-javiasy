@@ -24,8 +24,7 @@ var todo = (function() {
             // return a new array, it should contain todos with the newTodo added to the end.
             // add an id to the newTodo. You can use the generateId function to create an id.
             // hint: array.concat
-
-            newTodo.id = this.generateId();
+            newTodo.id = todo.todoFunctions.generateId();
             return todos.concat(newTodo);
 
         },
@@ -34,7 +33,7 @@ var todo = (function() {
             // return a new array, this should not contain any todo with an id of idToDelete
             // hint: array.filter
             return todos.filter(function(todo) {
-                return (todo.id === idToDelete) ? false : true;
+                return todo.id !== idToDelete;
             });
         },
         markTodo: function (todos, idToMark) {
