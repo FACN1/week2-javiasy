@@ -1,32 +1,32 @@
 QUnit.test( "addTodo function", function( assert ) {
     var testtodos = [
-      { id: -3, description: 'first todo'},
-      { id: -2, description: 'second todo'},
-      { id: -1, description: 'third todo'}
+      { id: -3, description: 'first todo', done: false},
+      { id: -2, description: 'second todo', done: false},
+      { id: -1, description: 'third todo', done: false}
     ];
 
     var result = todo.todoFunctions.addTodo(testtodos,{id: 0,description: 'fourth todo'});
     var expected =[
-        { id: -3, description: 'first todo'},
-        { id: -2, description: 'second todo'},
-        { id: -1, description: 'third todo'},
-        { id: 0, description: 'fourth todo'}
+        { id: -3, description: 'first todo', done: false},
+        { id: -2, description: 'second todo', done: false},
+        { id: -1, description: 'third todo', done: false},
+        { id: 0, description: 'fourth todo', done: false}
     ];
 
     var result2 = todo.todoFunctions.addTodo(testtodos,{id: null, description: "fourth todo"})
     var expected2 =[
-        { id: -3, description: 'first todo'},
-        { id: -2, description: 'second todo'},
-        { id: -1, description: 'third todo'},
-        { id: 1, description: 'fourth todo'}
+        { id: -3, description: 'first todo', done: false},
+        { id: -2, description: 'second todo', done: false},
+        { id: -1, description: 'third todo', done: false},
+        { id: 1, description: 'fourth todo', done: false}
     ];
 
     var result3 = todo.todoFunctions.addTodo(testtodos,{description: "fourth todo"})
     var expected3 =[
-        { id: -3, description: 'first todo'},
-        { id: -2, description: 'second todo'},
-        { id: -1, description: 'third todo'},
-        { id: 2, description: 'fourth todo'}
+        { id: -3, description: 'first todo', done: false},
+        { id: -2, description: 'second todo', done: false},
+        { id: -1, description: 'third todo', done: false},
+        { id: 2, description: 'fourth todo', done: false}
     ];
 
 
@@ -37,18 +37,18 @@ QUnit.test( "addTodo function", function( assert ) {
 
 QUnit.test("deleteTodo function", function(assert) {
     var input = [
-        { id: -3, description: 'first todo'},
-        { id: -2, description: 'second todo'},
-        { id: -1, description: 'third todo'}
+        { id: -3, description: 'first todo', done: false},
+        { id: -2, description: 'second todo', done: false},
+        { id: -1, description: 'third todo', done: false}
     ];
     var output1 = [
-        { id: -3, description: 'first todo'},
-        { id: -2, description: 'second todo'}
+        { id: -3, description: 'first todo', done: false},
+        { id: -2, description: 'second todo', done: false}
     ];
 
     var output2 = [
-       { id: -2, description: 'second todo'},
-       { id: -1, description: 'third todo'}
+       { id: -2, description: 'second todo', done: false},
+       { id: -1, description: 'third todo', done: false}
     ];
 
     var badinput = [1,3,4]
