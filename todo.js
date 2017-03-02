@@ -198,16 +198,13 @@ var todo = (function() {
         event.preventDefault(); // addEventListener callback arg + preventDefault() cancels the default submit action (reloads the page)
 
         var description = event.target.description.value; // The .description is set with the name="description" input attribute
-if (event.target.description.value!="")
-{
-        var newTodo = { // Create a new todo item object
-            description: description
-        };}
-        event.target.description.value = '';
 
-        state = todoFunctions.addTodo(state, newTodo);  // addTodo pure function doesn't mutate the state array, but this does change it.
-
-
+        if (event.target.description.value != '') {
+            // create a new todo object
+            var newTodo = { description: description };
+            event.target.description.value = '';
+            state = todoFunctions.addTodo(state, newTodo);  // addTodo pure function doesn't mutate the state array, but this does change it.
+        }
 
         controller.render(state);
     });
