@@ -65,14 +65,21 @@ var todo = (function() {
             var descriptionA = a.description.toUpperCase();
             var descriptionB = b.description.toUpperCase();
 
-            //compare the descriptions to arrange alphabetically
-            if ( descriptionA>descriptionB){
-                return 1;
+            //compare the descriptions to arrange alphabetically if not numbers
+            if (isNaN(descriptionA) || isNaN(descriptionB)){
+                if ( descriptionA>descriptionB){
+                    return 1;
+                }
+                if (descriptionA<descriptionB){
+                    return -1;
+                }
+                return 0;
+              };
+
+            // sort numerically if both numbers
+            if (!isNaN(descriptionA) && !isNaN(descriptionB)){
+              return descriptionA - descriptionB;
             }
-            if (descriptionA<descriptionB){
-                return -1;
-            }
-            return 0;
         },
 
         sortTodos: function(todos, func=todo.todoFunctions.alphabetSort){
